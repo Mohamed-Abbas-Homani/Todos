@@ -1,0 +1,32 @@
+.pomodoro {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.pomodoro input {
+    width: 20%;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 550;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.repeat-btn, .play-btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.repeat-btn:hover, .play-btn:hover {
+    transform: scale(1.05);
+}
+

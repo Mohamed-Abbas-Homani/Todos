@@ -1,0 +1,29 @@
+.bottom-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 89%;
+    flex: 1;
+
+}
+
+.clear-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 40%;
+    height: 75%;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: all 0.3s;
+    border-right: 1px dotted #565656;
+}
+
+.clear-btn:hover {
+    transform: scale(1.05);
+}

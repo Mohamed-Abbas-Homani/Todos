@@ -1,0 +1,69 @@
+.task {
+    position: relative;
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 27px;
+    margin: 17px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.task-light {
+    box-shadow:  3px 3px 3px #c6c6c6,
+                -3px -3px 3px #ffffff,
+                inset -1px -1px 1px #c6c6c6,
+                inset 1px 1px 1px #ffffff;
+}
+
+.task-dark {
+    box-shadow:  3px 3px 3px #121212,
+    -3px -3px 3px #181818,
+    inset -1px -1px 1px #121212,
+    inset 1px 1px 1px #181818; 
+}
+
+p {
+    font-size: 0.8em;
+}
+
+.check-done {
+    appearance: none; 
+    width: 13px;
+    height: 13px;
+    background-color: #c95656;
+    border-radius: 3px;
+    margin-right: 21px;
+    cursor: pointer;
+}
+
+.check-done:checked {
+    background-color: #56c956;
+    border: none;
+}
+
+.task-number {
+    position: absolute;
+    font-size: 0.6em;
+    top: -5px;
+    left: 3px;
+    opacity: 0.45;
+}
+
+.delete-btn {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    font-size: 0.8em;
+    top: 12.5px;
+    right: 3px;
+    opacity: 0.5;
+
+}
+

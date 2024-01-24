@@ -1,0 +1,32 @@
+.tasks-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 89%;
+    flex: 8;
+    padding-top: 10px;
+    overflow: scroll;
+    border-radius: 5px;
+
+}
+.tasks-container-light {
+    box-shadow: inset 5px 5px 10px #c6c6c6,
+                inset -5px -5px 10px #ffffff,
+                -2px -2px 3px #c6c6c6,
+                2px 2px 3px #ffffff;
+}
+
+
+.tasks-container-dark {
+    box-shadow: inset 5px 5px 10px #121212,
+                inset -5px -5px 10px #181818,
+                -2px -2px 3px #121212,
+                2px 2px 3px #181818;
+}
+.total {
+    position: absolute;
+    font-size: 0.7em;
+    opacity: 0.45;
+    top: 0;
+}
