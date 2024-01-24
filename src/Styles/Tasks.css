@@ -19,10 +19,10 @@
 
 
 .tasks-container-dark {
-    box-shadow: inset 5px 5px 10px #121212,
-                inset -5px -5px 10px #181818,
-                -2px -2px 3px #121212,
-                2px 2px 3px #181818;
+    box-shadow: inset 5px 5px 10px #1a1e2d,
+            inset -5px -5px 10px #24283d,
+            -2px -2px 3px #1a1e2d,
+            2px 2px 3px #24283d; 
 }
 .total {
     position: absolute;
