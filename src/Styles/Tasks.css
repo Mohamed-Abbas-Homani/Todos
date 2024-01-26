@@ -27,13 +27,14 @@
 .total {
     font-size: 0.7em;
     opacity: 0.45;
+    margin-left: 9%;
 }
 
 .info-bar {
     position: absolute;
     top: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     text-align: center;
@@ -45,7 +46,7 @@
 .filter-btn {
     border: none;
     outline: none;
-    margin-right: -11%;
+    margin-right: 10%;
     padding: 5px;
     border-radius: 50%;
     background-color: var(--front);

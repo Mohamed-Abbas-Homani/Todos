@@ -35,8 +35,8 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": true,
-        "title": "todo",
+        "resizable": false,
+        "title": "todo ^^",
         "width": 300,
         "height": 510
       }
