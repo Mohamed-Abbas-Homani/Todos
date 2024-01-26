@@ -19,14 +19,14 @@ type todoStore = {
 
 //Store
 const useStore = create<todoStore>(set => ({
-  mode: "dark",
+  mode: "light ",
   tasks: [],
   current: "",
   toggleMode: () => {
     set(state => (
       {
         ...state,
-        mode:state.mode === 'light'? 'dark' : 'light'
+        mode:state.mode === 'light '? 'dark ' : 'light '
       }
     ))
   },

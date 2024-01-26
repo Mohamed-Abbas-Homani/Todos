@@ -42,10 +42,29 @@
     border: none;
     outline: none;
     background-color: transparent;
-    top: 23px;
+    top: 25px;
     right: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
     cursor: pointer;
     transition: all 0.3s;
+}
+
+.mode-btn-light {
+    box-shadow:  1px 1px 1px #c6c6c6,
+    -1px -1px 1px #ffffff,
+    inset -1px -1px 1px #c6c6c6,
+    inset 1px 1px 1px #ffffff;
+}
+
+.mode-btn-dark {
+    box-shadow:  3px 3px 5px #1a1e2d,
+             -3px -3px 5px #24283d,
+            inset -1px -1px 1px #1a1e2d,
+            inset 1px 1px 1px #24283d; 
 }
 
 .mode-btn:hover {

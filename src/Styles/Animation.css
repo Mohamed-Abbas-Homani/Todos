@@ -1,0 +1,93 @@
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeout 0.4s ease-in-out;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadein 0.5s ease-in-out;
+}
+
+
+@keyframes taskcheck {
+    0% {
+        
+    }
+
+    10% {
+        transform: rotate(1deg);
+    }
+
+    20% {
+        transform: rotate(-1deg);
+    }
+
+    30% {
+        transform: scaleX(0.95);
+    }
+
+    40% {
+        transform: scaleX(1.05);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    60% {
+        transform: rotate(-3deg);
+    }
+
+    70% {
+        transform: scaleX(0.90);
+    }
+
+    80% {
+        transform: scaleX(1.1);
+    }
+
+    90% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+.task-check {
+    animation: taskcheck .5s ease-in-out;
+}
+
+@keyframes addtask {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+}
+
+.add-task {
+    animation: addtask 0.4s ease-in-out;
+}

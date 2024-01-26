@@ -25,8 +25,36 @@
             2px 2px 3px #24283d; 
 }
 .total {
-    position: absolute;
     font-size: 0.7em;
     opacity: 0.45;
+}
+
+.info-bar {
+    position: absolute;
     top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    /* background-color: #1a1e2d; */
+}
+
+.filter-btn {
+    border: none;
+    outline: none;
+    margin-right: -11%;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: var(--front);
+    opacity: 0.35;
+    cursor: pointer;
+    
+}
+
+.filter-btn:hover {
+    transform: scale(1.01);
+    filter: brightness(1.5);
 }

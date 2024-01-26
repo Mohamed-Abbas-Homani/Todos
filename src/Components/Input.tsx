@@ -12,13 +12,14 @@ const Input = () => {
   const setCurrent = useSetCurrent();
   const setTasks = useSetTasks();
   const [message, setMessage] = useState<string>("Add a Task...");
-
+  const [animation, setAnimation] = useState("");
   const showMessage = (msg: string) => {
     setTimeout(() => {
       setMessage("Add a Task...");
     }, 2000);
     setMessage(msg);
   }
+
   const isValid = () => current.trim() !== "";
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -29,11 +30,15 @@ const Input = () => {
     if (e.key === 'Enter') {
       e.preventDefault();
       if (isValid()) {
+        setTimeout(() => {
+          setCurrent("");
+          showMessage("Task Added!");
+          setAnimation("")
+        }, 400);
         addTask(
           { id: null, text: current.trim(), done: false }
         ).then(setTasks);
-        setCurrent("");
-        showMessage("Task Added!");
+        setAnimation("add-task");
       } else {
         showMessage("Input is not valid!")
       }
@@ -42,7 +47,7 @@ const Input = () => {
 
 
   return (
-    <div className="input-container">
+    <div className={"input-container " + animation}>
       <input
         type="text"
         className={"input-field input-field-" + mode }
@@ -53,9 +58,10 @@ const Input = () => {
         onKeyDown={handleKeyPress}
       />
       <button
+      title={mode === "light "? "Dark Mode!" : "Light Mode!"}
       onClick={() => setMode()}
-      className="mode-btn">
-        {mode === "light"?
+      className={"mode-btn mode-btn-" + mode}>
+        {mode === "light "?
           <MdDarkMode />
           :
           <MdLightMode />

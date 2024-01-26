@@ -1,5 +1,6 @@
-import { useState } from "react";
-import "../Styles/Task.css"
+import { useEffect, useState } from "react";
+import "../Styles/Task.css";
+import "../Styles/Animation.css";
 import { useMode, useSetTasks } from "../store";
 import { FaTrash } from "react-icons/fa6";
 import { editDone, removeTask } from "../db";
@@ -21,15 +22,26 @@ const Task = ({
   const setTasks = useSetTasks();
   const [checked, setChecked] = useState(done);
   const [showNum, setShowNum] = useState(false);
-
+  const [animation, setAnimation] = useState("");
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked)
-    editDone(id, e.target.checked).then(setTasks)
+    setTimeout(() => {
+      editDone(id, e.target.checked).then(setTasks)
+      setAnimation("");
+    }, 500);
+    setAnimation("task-check");
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimation("");
+    }, 400);
+    setAnimation("fade-in");
+  }, [])
 
   return (
     <div
-    className={"task task-" + mode}
+    className={"task task-" + mode + animation}
     onMouseOver={() => setShowNum(true)}
     onMouseLeave={() => setShowNum(false)}
     >
@@ -48,7 +60,13 @@ const Task = ({
       <button
         title="Delete Task!"
         className="delete-btn"
-        onClick={() => removeTask(id).then(setTasks)}
+        onClick={() => {
+          setTimeout(() => {
+            removeTask(id).then(setTasks);
+            setAnimation("");
+          }, 400);
+          setAnimation("fade-out");
+        }}
       >
         <FaTrash/>
       </button>

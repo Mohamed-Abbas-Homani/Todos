@@ -1,6 +1,6 @@
 .pomodoro {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
 
@@ -24,9 +24,14 @@
     background-color: transparent;
     cursor: pointer;
     transition: all 0.3s;
+    margin-top: 5px;
 }
 
 .repeat-btn:hover, .play-btn:hover {
     transform: scale(1.05);
 }
 
+.its, .time {
+    font-size: 0.55em;
+    opacity: 0.7;
+}

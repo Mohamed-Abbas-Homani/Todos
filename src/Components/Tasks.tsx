@@ -1,53 +1,63 @@
-import { ReactNode, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../Styles/Tasks.css"
 import { useMode, useSetTasks, useTasks } from "../store"
 import { getTasks } from "../db";
 import Task from "./Task";
-
-//Generic Lister!
-function List<ListItem>({
-  items,
-  render,
-  filter,
-} : {
-  items: ListItem[];
-  render: (item: ListItem, index?:number) => ReactNode;
-  filter?: (item: ListItem) => Boolean;
-}) {
-  return (
-    <div>
-      {items
-      .filter((item) => filter? filter(item):true)
-      .map((item, key) => (
-        <div key={key}>
-          {render(item, key)}
-        </div>
-      ))}
-    </div>
-  )
-}
 
 //List Tasks.
 const Tasks = () => {
   const mode = useMode();
   const tasks = useTasks();
   const setTasks = useSetTasks();
-
+  const [filter, setFilter] = useState("all");
   useEffect(() => {
     getTasks().then(setTasks)
   }, [])
 
-
+  const alongWithFilter = (
+    first:string | boolean,
+    second:string | boolean,
+    third:string | boolean
+  ) => (
+    filter==="all"?
+    first:
+    filter==="just complete"?
+    second:
+    third
+  )
 
   return (
     <div className={"tasks-container tasks-container-" +  mode}>
-      <List
-        items={tasks}
-        render={(task, index) => <Task {...task} index={index! + 1}/>}
-      />
-      <span className="total">
-        {!!tasks.length?`Total ${tasks.length} tasks` : "Empty !"}
-      </span>
+      <div>
+        {tasks
+        .filter((task) => alongWithFilter(true, task.done, !task.done))
+        .map((task, key) => (
+          <Task
+            key={task.id!}
+            {...task}
+            index={key + 1}
+          />
+          )
+        )
+        }
+      </div>
+      <div className="info-bar">
+        <span className="total">
+          {!!tasks.length?`Total ${tasks.length} tasks` : "Empty !"}
+        </span>
+        {!!tasks.length && 
+        <button
+          className="filter-btn"
+          title={"show " + String(alongWithFilter("just complete", "just uncomplete", "all"))}
+          style={{
+            backgroundColor: String(alongWithFilter("#565656", "#56c956", "#c95656"))
+          }}
+          onClick={() => {
+            setFilter(String(alongWithFilter("just complete", "just uncomplete", "all")))
+          }}
+        >
+        </button>}
+      </div>
     </div>
   )
 }
